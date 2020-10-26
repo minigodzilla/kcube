@@ -494,13 +494,13 @@ body[data-show='login'] .cube-face {
         }
 
         .title-artist {
-          width: 80%;
+          width: 90%;
           white-space: nowrap;
           overflow: hidden;
         }
 
         .downloaded {
-          width: 10%;
+          display: none;
         }
       }
     }
