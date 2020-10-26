@@ -1,4 +1,4 @@
-# HTML Boilerplate
+# kCube
 
 ## Getting Started
 
@@ -17,6 +17,7 @@ npm install gulp -g
 Clone project from github Repository
 
 ```
+https://github.com/minigodzilla/kcube.git
 ```
 
 ### Installing
