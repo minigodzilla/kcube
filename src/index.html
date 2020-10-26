@@ -1,0 +1,107 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>kCube</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body data-show="login" class="paused">
+    <svg xmlns="http://www.w3.org/2000/svg" class="svg-defs">
+      <symbol class="svg" id="pause-btn" viewBox="0 0 40 35">
+        <path d="m4 0h12v35h-12z"/>
+        <path d="m24 0h12v35h-12z"/>
+      </symbol>
+      <symbol class="svg" id="play-btn" viewBox="0 0 40 35">
+        <path d="m0 0 40 17.5-40 17.5z"/>
+      </symbol>
+      <symbol class="svg" id="logo" viewBox="0 0 321.4 50.3">
+        <path d="m74.5 50.3h-11.7l-20.1-10.2c-1-.5-1.8-1.3-2.4-2.2s-.9-2-.9-3.2.3-2.3.9-3.2 1.4-1.7 2.4-2.2l19.6-10h11.8l-30.4 15.4zm-36.4 0h-5.4v-31.1h5.4zm58.8-5.4h35.6v5.4h-32.6c-1.2 0-2.3-.2-3.3-.7s-1.9-1-2.7-1.8-1.4-1.6-1.8-2.7c-.4-1-.7-2.1-.7-3.3v-14.1c0-1.2.2-2.3.7-3.3s1-1.9 1.8-2.7c.7-.8 1.6-1.4 2.7-1.8 1-.4 2.1-.7 3.3-.7h32.5v5.4h-35.5zm94.4-25.7v25.7h-2.6-24.9-2.6v-25.7h-5.4v22.6c0 1.2.2 2.3.7 3.3.4 1 1 1.9 1.8 2.7.7.8 1.6 1.3 2.7 1.8.9.4 1.8.6 2.9.7h.4 24 .4c1-.1 2-.3 2.9-.7 1-.5 1.9-1 2.7-1.8s1.4-1.6 1.8-2.7c.4-1 .7-2.1.7-3.3v-22.6zm65.6 28.6c.8-.8 1.3-1.6 1.8-2.7.4-1 .7-2.1.7-3.3v-2.4c-.1-.9-.4-1.7-.9-2.4-.6-1-1.5-1.7-2.5-2.3 1-.6 1.9-1.3 2.5-2.3.5-.7.7-1.5.9-2.4v-2.4c0-1.2-.2-2.3-.7-3.3s-1.1-1.9-1.8-2.7-1.6-1.4-2.7-1.8c-1-.4-2.1-.7-3.3-.7h-32.4v31.1h5.4 27c1.2 0 2.3-.2 3.3-.7 1.1-.3 2-.9 2.7-1.7zm-2.9-2.9h-30v-7.4h30zm0-12.8h-29-1v-7.4h30zm67.4 18.2h-32.5c-1.2 0-2.3-.2-3.3-.7s-1.9-1-2.7-1.8-1.3-1.6-1.8-2.7c-.4-1-.7-2.1-.7-3.3v-14.1c0-1.2.2-2.3.7-3.3s1.1-1.9 1.8-2.7 1.6-1.4 2.7-1.8c1-.4 2.1-.7 3.3-.7h32.5v5.4h-35.6v7.4h35.6v5.4h-35.6v7.4h35.6zm-300.3-28.1 18.9-10.9-19.7-11.3-18.9 10.9zm-21.1-9.1v21.8l19.6 11.3v-1.6-20.2z" />
+      </symbol>
+    </svg>
+
+    <div id="player"></div>
+
+    <main>
+      <div class="cube-space">
+        <div class="cube-box">
+          <div class="cube-face cube-face-left cube-face-playlist">
+            <h1>Playlist</h1>
+            <ul class="list"></ul>
+          </div>
+          <div class="cube-face cube-face-front cube-face-now-playing">
+            <div class="now-playing">now playing</div>
+            <h1 class="title"></h1>
+            <div class="artist"></div>
+            <div class="vis">
+              <div class="vis-box"></div>
+            </div>
+            <div class="controls">
+              <div class="btn">
+                <svg class="pause-svg" fill="#8df" viewBox="0 0 40 35">
+                  <use xlink:href="#pause-btn" />
+                </svg>
+                <svg class="play-svg" fill="#8df" viewBox="0 0 40 35">
+                  <use xlink:href="#play-btn" />
+                </svg>
+              </div>
+            </div>
+            <div class="download">
+              <button class="btn-dl">download</button>
+            </button>
+            </div>
+          </div>
+          <div class="cube-face cube-face-right cube-face-options">
+            <h1>options</h1>
+            <div class="buttons">
+              <button class="btn-logout">log out</button>
+            </div>
+          </div>
+          <div class="cube-face cube-face-back"></div>
+          <div class="cube-face cube-face-top cube-face-login">
+            <div class="logo">
+              <svg fill="#8df" viewBox="0 0 321.4 50.3">
+                <use xlink:href="#logo" />
+              </svg>
+            </div>
+            <div class="inputs">
+              <input id="user" type="text" placeholder="user" />
+              <input id="pw" type="password" placeholder="pw" />
+              <div class="error-msg"></div>
+            </div>
+            <div class="buttons">
+              <button class="btn" data-action="login">log in</button>
+              <button class="btn" data-action="signup">sign up</button>
+            </div>
+          </div>
+          <div class="cube-face cube-face-bottom"></div>
+        </div>
+      </div>
+    </main>
+    <nav>
+      <div class="dot" data-face="playlist"></div>
+      <div class="dot active" data-face="now-playing"></div>
+      <div class="dot" data-face="options"></div>
+    </nav>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/wildwebmidi.js"></script>
+    <script src="./assets/js/midiplayer.js"></script>
+    <link rel="stylesheet" href="./assets/js/midiplayer.css">
+    <script type="text/javascript">
+        
+        var midiUpdate = function(time) {
+            console.log(time);
+        }
+        var midiStop = function() {
+            console.log("Stop");
+        }
+        
+        $( document ).ready(function() {
+            $("#player").midiPlayer();
+      });
+    </script>
+  </body>
+</html>
